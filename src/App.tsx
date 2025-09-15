@@ -45,6 +45,7 @@ export default function App() {
             </header>
 
             {/* Player */}
+            {/* Player */}
             <div
                 style={{
                     width: "100%",
@@ -56,12 +57,26 @@ export default function App() {
                     overflow: "hidden",
                     aspectRatio: "16/9",
                     marginTop: 16,
+                    position: "relative", // Hỗ trợ định vị overlay
                 }}
             >
                 <YouTube
                     videoId={currentVideo}
                     opts={opts}
                     style={{ width: "100%", height: "100%" }}
+                />
+                {/* Overlay trong suốt để chặn chuyển hướng */}
+                <div
+                    style={{
+                        position: "absolute",
+                        bottom: 0, // Đặt ở góc dưới
+                        right: 0, // Đặt ở góc phải
+                        width: "150px", // Điều chỉnh kích thước theo logo
+                        height: "34px", // Điều chỉnh kích thước theo logo
+                        background: "transparent", // Trong suốt để logo vẫn hiển thị
+                        zIndex: 10, // Đảm bảo nằm trên iframe
+                        cursor: "default", // Ngăn con trỏ tay xuất hiện
+                    }}
                 />
             </div>
 
